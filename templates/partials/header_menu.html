@@ -5,13 +5,22 @@
     </a>
 {% endfor %}
 {% if DISPLAY_PAGES_ON_MENU != False %}
-    {% for page in PAGES %}
+    {% for page in pages %}
         <a class="mdl-color-text--accent mdl-navigation__link"
            href="{{ SITEURL }}/{{ page.url }}" itemprop="url"
            rel="bookmark">
             {{ page.title }}
         </a>
     {% endfor %}
+{% endif %}
+{% if DISPLAY_CATEGORIES_ON_MENU != False %}
+            {% for cat, null in categories  %}
+                <a class="mdl-color-text--accent mdl-navigation__link"
+           href="{{ SITEURL }}/{{ cat.url }}" itemprop="url"
+                   rel="bookmark">
+                    {{ cat }}
+                </a>
+            {% endfor %}
 {% endif %}
 {% if ARCHIVES_SAVE_AS %}
     <a class="mdl-color-text--accent mdl-navigation__link"
