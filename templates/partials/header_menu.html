@@ -13,6 +13,15 @@
         </a>
     {% endfor %}
 {% endif %}
+{% if DISPLAY_CATEGORIES_ON_MENU != False %}
+            {% for cat, null in categories  %}
+                <a class="mdl-color-text--accent mdl-navigation__link"
+           href="{{ SITEURL }}/{{ cat.url }}" itemprop="url"
+                   rel="bookmark">
+                    {{ cat }}
+                </a>
+            {% endfor %}
+{% endif %}
 {% if ARCHIVES_SAVE_AS %}
     <a class="mdl-color-text--accent mdl-navigation__link"
        href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"
